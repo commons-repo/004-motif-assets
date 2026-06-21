@@ -1,5 +1,5 @@
 # Open Data of Digital Assets Derived From Physical Motifs
-**A study by the [Advanced Manufacturing Engineering Laboratory, Kitami Institute of Technology, Japan] (https://www.kit-amel.jp/)**
+**A study by the [Advanced Manufacturing Engineering Laboratory](https://kit-amel.jp), Kitami Institute of Technology, Japan**
 
 ## Overview
 This repository hosts the public dataset, semantic ontology, and digital abstractions generated from the digitization of traditional physical cultural motifs (specifically Ainu motifs). The objective is to provide open access to the complete digital asset pipeline, ensuring methodological reproducibility and facilitating the functional reuse of heritage designs in contemporary manufacturing workflows.
