@@ -1,0 +1,654 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://example.org/ainu_motifs.owl"
+         xmlns="http://example.org/ainu_motifs.owl#">
+
+<owl:Ontology rdf:about="http://example.org/ainu_motifs.owl"/>
+
+<owl:ObjectProperty rdf:about="#characterizedBy">
+  <rdfs:domain rdf:resource="#CulturalMotif"/>
+  <rdfs:range rdf:resource="#ClassificationDimension"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasContext">
+  <rdfs:domain rdf:resource="#CulturalMotif"/>
+  <rdfs:range rdf:resource="#SemanticCulturalContext"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#producesAsset">
+  <rdfs:domain rdf:resource="#CulturalMotif"/>
+  <rdfs:range rdf:resource="#DigitizedAsset"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#generatedBy">
+  <rdfs:domain rdf:resource="#DigitizedAsset"/>
+  <rdfs:range rdf:resource="#DigitizationTool"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#toolDefinition">
+  <rdfs:domain rdf:resource="#DigitizationTool"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#assetDefinition">
+  <rdfs:domain rdf:resource="#DigitizedAsset"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#zipFilePath">
+  <rdfs:domain rdf:resource="#DigitizedAsset"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#narrativeMeaning">
+  <rdfs:domain rdf:resource="#SemanticCulturalContext"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#historicalSignificance">
+  <rdfs:domain rdf:resource="#SemanticCulturalContext"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasURL">
+  <rdfs:domain rdf:resource="#DigitizationTool"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasDocumentation">
+  <rdfs:domain rdf:resource="#DigitizationTool"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:AnnotationProperty rdf:about="#classDefinition"/>
+
+<owl:AnnotationProperty rdf:about="#subclassDefinition"/>
+
+<owl:AnnotationProperty rdf:about="#dimensionDefinition"/>
+
+<owl:Class rdf:about="#CulturalMotif">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <classDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Core abstract class representing high-level regional cultural design elements.</classDefinition>
+</owl:Class>
+
+<owl:Class rdf:about="#AinuMotif">
+  <rdfs:subClassOf rdf:resource="#CulturalMotif"/>
+  <subclassDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Traditional design motifs originating from the indigenous Ainu culture of Hokkaido.</subclassDefinition>
+</owl:Class>
+
+<owl:Class rdf:about="#RyukyuMotif">
+  <rdfs:subClassOf rdf:resource="#CulturalMotif"/>
+  <subclassDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Traditional design motifs originating from the historical Ryukyu Kingdom of Okinawa.</subclassDefinition>
+</owl:Class>
+
+<owl:Class rdf:about="#ClassificationDimension">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <dimensionDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The root abstract class representing the structural parameters used to analyze a motif's overall design form.</dimensionDefinition>
+</owl:Class>
+
+<owl:Class rdf:about="#CompositionalComplexity">
+  <rdfs:subClassOf rdf:resource="#ClassificationDimension"/>
+  <classDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The structural parameter within the classification dimension that evaluates the number and hierarchy of design parts forming a motif.</classDefinition>
+</owl:Class>
+
+<owl:Class rdf:about="#GeometricStructure">
+  <rdfs:subClassOf rdf:resource="#ClassificationDimension"/>
+  <classDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The structural parameter within the classification dimension that evaluates the spatial layout and symmetry of design parts forming a motif.</classDefinition>
+</owl:Class>
+
+<owl:Class rdf:about="#ElementaryMotif">
+  <rdfs:subClassOf rdf:resource="#CompositionalComplexity"/>
+  <subclassDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An irreducible, single-element primitive design unit.</subclassDefinition>
+</owl:Class>
+
+<owl:Class rdf:about="#SyntheticMotif">
+  <rdfs:subClassOf rdf:resource="#CompositionalComplexity"/>
+  <subclassDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A compound pattern formed by combining multiple elementary primitives.</subclassDefinition>
+</owl:Class>
+
+<owl:Class rdf:about="#CombinatorialMotif">
+  <rdfs:subClassOf rdf:resource="#CompositionalComplexity"/>
+  <subclassDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A multi-layered pattern expanding on traditional rules, elementary and synthetic motifs.</subclassDefinition>
+</owl:Class>
+
+<owl:Class rdf:about="#SymmetricalGeometry">
+  <rdfs:subClassOf rdf:resource="#GeometricStructure"/>
+  <subclassDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A layout displaying clear mathematical reflection, rotation, or translation symmetry.</subclassDefinition>
+</owl:Class>
+
+<owl:Class rdf:about="#AsymmetricalGeometry">
+  <rdfs:subClassOf rdf:resource="#GeometricStructure"/>
+  <subclassDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A layout governed by organic, non-uniform, or balanced asymmetrical spatial constraints.</subclassDefinition>
+</owl:Class>
+
+<owl:Class rdf:about="#SemanticCulturalContext">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DigitizedAsset">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PointCloud">
+  <rdfs:subClassOf rdf:resource="#DigitizedAsset"/>
+</owl:Class>
+
+<owl:Class rdf:about="#GenerativeCode">
+  <rdfs:subClassOf rdf:resource="#DigitizedAsset"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DigitalAbstraction">
+  <rdfs:subClassOf rdf:resource="#DigitizedAsset"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DigitizationTool">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#IPCM_Online_System">
+  <rdf:type rdf:resource="#DigitizationTool"/>
+  <hasURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://commons-repo.github.io/002-research/</hasURL>
+  <hasDocumentation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://commons-repo.github.io/002-research/</hasDocumentation>
+  <toolDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Automated platform for point cloud generation.</toolDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#OpenSCAD_Template">
+  <rdf:type rdf:resource="#DigitizationTool"/>
+  <hasURL rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad</hasURL>
+  <hasDocumentation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf</hasDocumentation>
+  <toolDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Template for rendering point clouds to digital abstractions using OpenSCAD.</toolDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#ElementaryMotif_Facet">
+  <rdf:type rdf:resource="#ElementaryMotif"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#SyntheticMotif_Facet">
+  <rdf:type rdf:resource="#SyntheticMotif"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#CombinatorialMotif_Facet">
+  <rdf:type rdf:resource="#CombinatorialMotif"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#SymmetricalGeometry_Facet">
+  <rdf:type rdf:resource="#SymmetricalGeometry"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#AsymmetricalGeometry_Facet">
+  <rdf:type rdf:resource="#AsymmetricalGeometry"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Apapo-Piras(u)ke">
+  <rdf:type rdf:resource="#AinuMotif"/>
+  <characterizedBy rdf:resource="#ElementaryMotif_Facet"/>
+  <characterizedBy rdf:resource="#SymmetricalGeometry_Facet"/>
+  <hasContext rdf:resource="#Apapo-Piras(u)ke_context"/>
+  <producesAsset rdf:resource="#Apapo-Piras(u)ke_point_cloud"/>
+  <producesAsset rdf:resource="#Apapo-Piras(u)ke_digital_abstraction"/>
+  <producesAsset rdf:resource="#Apapo-Piras(u)ke_code_layer"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Apapo-Piras(u)ke_context">
+  <rdf:type rdf:resource="#SemanticCulturalContext"/>
+  <narrativeMeaning rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Traditional plant/flower motif in bloom, used as a decorative flourish.</narrativeMeaning>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Apapo-Piras(u)ke_point_cloud">
+  <rdf:type rdf:resource="#PointCloud"/>
+  <generatedBy rdf:resource="#IPCM_Online_System"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Apapo-Piras(u)ke/point/point.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raw point clouds created as the primary representation of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Apapo-Piras(u)ke_code_layer">
+  <rdf:type rdf:resource="#GenerativeCode"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Apapo-Piras(u)ke/code/code.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Apapo-Piras(u)ke_digital_abstraction">
+  <rdf:type rdf:resource="#DigitalAbstraction"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Apapo-Piras(u)ke/digital_abstraction/digital_abstraction.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Ayus">
+  <rdf:type rdf:resource="#AinuMotif"/>
+  <characterizedBy rdf:resource="#ElementaryMotif_Facet"/>
+  <characterizedBy rdf:resource="#SymmetricalGeometry_Facet"/>
+  <hasContext rdf:resource="#Ayus_context"/>
+  <producesAsset rdf:resource="#Ayus_code_layer"/>
+  <producesAsset rdf:resource="#Ayus_digital_abstraction"/>
+  <producesAsset rdf:resource="#Ayus_point_cloud"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Ayus_context">
+  <rdf:type rdf:resource="#SemanticCulturalContext"/>
+  <narrativeMeaning rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Protective thorn structure, used at the tips of patterns to ward off evil.</narrativeMeaning>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Ayus_point_cloud">
+  <rdf:type rdf:resource="#PointCloud"/>
+  <generatedBy rdf:resource="#IPCM_Online_System"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Ayus/point/point.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raw point clouds created as the primary representation of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Ayus_code_layer">
+  <rdf:type rdf:resource="#GenerativeCode"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Ayus/code/code.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Ayus_digital_abstraction">
+  <rdf:type rdf:resource="#DigitalAbstraction"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Ayus/digital_abstraction/digital_abstraction.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C1">
+  <rdf:type rdf:resource="#AinuMotif"/>
+  <characterizedBy rdf:resource="#CombinatorialMotif_Facet"/>
+  <characterizedBy rdf:resource="#SymmetricalGeometry_Facet"/>
+  <hasContext rdf:resource="#C1_context"/>
+  <producesAsset rdf:resource="#C1_digital_abstraction"/>
+  <producesAsset rdf:resource="#C1_point_cloud"/>
+  <producesAsset rdf:resource="#C1_code_layer"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C1_context">
+  <rdf:type rdf:resource="#SemanticCulturalContext"/>
+  <narrativeMeaning rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Multi-layered combinatorial pattern expanding on traditional rules, elementary and synthetic motifs.</narrativeMeaning>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C1_point_cloud">
+  <rdf:type rdf:resource="#PointCloud"/>
+  <generatedBy rdf:resource="#IPCM_Online_System"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C1/point/point.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raw point clouds created as the primary representation of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C1_code_layer">
+  <rdf:type rdf:resource="#GenerativeCode"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C1/code/code.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C1_digital_abstraction">
+  <rdf:type rdf:resource="#DigitalAbstraction"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C1/digital_abstraction/digital_abstraction.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2">
+  <rdf:type rdf:resource="#AinuMotif"/>
+  <characterizedBy rdf:resource="#CombinatorialMotif_Facet"/>
+  <characterizedBy rdf:resource="#SymmetricalGeometry_Facet"/>
+  <hasContext rdf:resource="#C2_context"/>
+  <producesAsset rdf:resource="#C2_point_cloud"/>
+  <producesAsset rdf:resource="#C2_code_layer"/>
+  <producesAsset rdf:resource="#C2_digital_abstraction"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2_context">
+  <rdf:type rdf:resource="#SemanticCulturalContext"/>
+  <narrativeMeaning rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Multi-layered combinatorial pattern expanding on traditional rules, elementary and synthetic motifs.</narrativeMeaning>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2_point_cloud">
+  <rdf:type rdf:resource="#PointCloud"/>
+  <generatedBy rdf:resource="#IPCM_Online_System"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C2/point/point.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raw point clouds created as the primary representation of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2_code_layer">
+  <rdf:type rdf:resource="#GenerativeCode"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C2/code/code.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2_digital_abstraction">
+  <rdf:type rdf:resource="#DigitalAbstraction"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C2/digital_abstraction/digital_abstraction.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C3">
+  <rdf:type rdf:resource="#AinuMotif"/>
+  <characterizedBy rdf:resource="#CombinatorialMotif_Facet"/>
+  <characterizedBy rdf:resource="#SymmetricalGeometry_Facet"/>
+  <hasContext rdf:resource="#C3_context"/>
+  <producesAsset rdf:resource="#C3_point_cloud"/>
+  <producesAsset rdf:resource="#C3_code_layer"/>
+  <producesAsset rdf:resource="#C3_digital_abstraction"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C3_context">
+  <rdf:type rdf:resource="#SemanticCulturalContext"/>
+  <narrativeMeaning rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Multi-layered combinatorial pattern expanding on traditional rules, elementary and synthetic motifs.</narrativeMeaning>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C3_point_cloud">
+  <rdf:type rdf:resource="#PointCloud"/>
+  <generatedBy rdf:resource="#IPCM_Online_System"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C3/point/point.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raw point clouds created as the primary representation of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C3_code_layer">
+  <rdf:type rdf:resource="#GenerativeCode"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C3/code/code.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C3_digital_abstraction">
+  <rdf:type rdf:resource="#DigitalAbstraction"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C3/digital_abstraction/digital_abstraction.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C4">
+  <rdf:type rdf:resource="#AinuMotif"/>
+  <characterizedBy rdf:resource="#CombinatorialMotif_Facet"/>
+  <characterizedBy rdf:resource="#SymmetricalGeometry_Facet"/>
+  <hasContext rdf:resource="#C4_context"/>
+  <producesAsset rdf:resource="#C4_point_cloud"/>
+  <producesAsset rdf:resource="#C4_code_layer"/>
+  <producesAsset rdf:resource="#C4_digital_abstraction"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C4_context">
+  <rdf:type rdf:resource="#SemanticCulturalContext"/>
+  <narrativeMeaning rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Multi-layered combinatorial pattern expanding on traditional rules, elementary and synthetic motifs.</narrativeMeaning>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C4_point_cloud">
+  <rdf:type rdf:resource="#PointCloud"/>
+  <generatedBy rdf:resource="#IPCM_Online_System"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C4/point/point.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raw point clouds created as the primary representation of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C4_code_layer">
+  <rdf:type rdf:resource="#GenerativeCode"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C4/code/code.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C4_digital_abstraction">
+  <rdf:type rdf:resource="#DigitalAbstraction"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C4/digital_abstraction/digital_abstraction.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C5">
+  <rdf:type rdf:resource="#AinuMotif"/>
+  <characterizedBy rdf:resource="#CombinatorialMotif_Facet"/>
+  <characterizedBy rdf:resource="#SymmetricalGeometry_Facet"/>
+  <hasContext rdf:resource="#C5_context"/>
+  <producesAsset rdf:resource="#C5_point_cloud"/>
+  <producesAsset rdf:resource="#C5_code_layer"/>
+  <producesAsset rdf:resource="#C5_digital_abstraction"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C5_context">
+  <rdf:type rdf:resource="#SemanticCulturalContext"/>
+  <narrativeMeaning rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Multi-layered combinatorial pattern expanding on traditional rules, elementary and synthetic motifs.</narrativeMeaning>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C5_point_cloud">
+  <rdf:type rdf:resource="#PointCloud"/>
+  <generatedBy rdf:resource="#IPCM_Online_System"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C5/point/point.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raw point clouds created as the primary representation of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C5_code_layer">
+  <rdf:type rdf:resource="#GenerativeCode"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C5/code/code.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C5_digital_abstraction">
+  <rdf:type rdf:resource="#DigitalAbstraction"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C5/digital_abstraction/digital_abstraction.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C6">
+  <rdf:type rdf:resource="#AinuMotif"/>
+  <characterizedBy rdf:resource="#CombinatorialMotif_Facet"/>
+  <characterizedBy rdf:resource="#SymmetricalGeometry_Facet"/>
+  <hasContext rdf:resource="#C6_context"/>
+  <producesAsset rdf:resource="#C6_code_layer"/>
+  <producesAsset rdf:resource="#C6_digital_abstraction"/>
+  <producesAsset rdf:resource="#C6_point_cloud"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C6_context">
+  <rdf:type rdf:resource="#SemanticCulturalContext"/>
+  <narrativeMeaning rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Multi-layered combinatorial pattern expanding on traditional rules, elementary and synthetic motifs.</narrativeMeaning>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C6_point_cloud">
+  <rdf:type rdf:resource="#PointCloud"/>
+  <generatedBy rdf:resource="#IPCM_Online_System"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C6/point/point.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raw point clouds created as the primary representation of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C6_code_layer">
+  <rdf:type rdf:resource="#GenerativeCode"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C6/code/code.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C6_digital_abstraction">
+  <rdf:type rdf:resource="#DigitalAbstraction"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/C6/digital_abstraction/digital_abstraction.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Heart-Shape">
+  <rdf:type rdf:resource="#AinuMotif"/>
+  <characterizedBy rdf:resource="#ElementaryMotif_Facet"/>
+  <characterizedBy rdf:resource="#SymmetricalGeometry_Facet"/>
+  <hasContext rdf:resource="#Heart-Shape_context"/>
+  <producesAsset rdf:resource="#Heart-Shape_code_layer"/>
+  <producesAsset rdf:resource="#Heart-Shape_digital_abstraction"/>
+  <producesAsset rdf:resource="#Heart-Shape_point_cloud"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Heart-Shape_context">
+  <rdf:type rdf:resource="#SemanticCulturalContext"/>
+  <narrativeMeaning rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Historical handcrafted textile variant resembling a heart shape.</narrativeMeaning>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Heart-Shape_point_cloud">
+  <rdf:type rdf:resource="#PointCloud"/>
+  <generatedBy rdf:resource="#IPCM_Online_System"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Heart-Shape/point/point.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raw point clouds created as the primary representation of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Heart-Shape_code_layer">
+  <rdf:type rdf:resource="#GenerativeCode"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Heart-Shape/code/code.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Heart-Shape_digital_abstraction">
+  <rdf:type rdf:resource="#DigitalAbstraction"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Heart-Shape/digital_abstraction/digital_abstraction.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Morew">
+  <rdf:type rdf:resource="#AinuMotif"/>
+  <characterizedBy rdf:resource="#ElementaryMotif_Facet"/>
+  <characterizedBy rdf:resource="#AsymmetricalGeometry_Facet"/>
+  <hasContext rdf:resource="#Morew_context"/>
+  <producesAsset rdf:resource="#Morew_code_layer"/>
+  <producesAsset rdf:resource="#Morew_digital_abstraction"/>
+  <producesAsset rdf:resource="#Morew_point_cloud"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Morew_context">
+  <rdf:type rdf:resource="#SemanticCulturalContext"/>
+  <narrativeMeaning rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Classic whirling spiral element representing power and movement.</narrativeMeaning>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Morew_point_cloud">
+  <rdf:type rdf:resource="#PointCloud"/>
+  <generatedBy rdf:resource="#IPCM_Online_System"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Morew/point/point.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raw point clouds created as the primary representation of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Morew_code_layer">
+  <rdf:type rdf:resource="#GenerativeCode"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Morew/code/code.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Morew_digital_abstraction">
+  <rdf:type rdf:resource="#DigitalAbstraction"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Morew/digital_abstraction/digital_abstraction.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sik">
+  <rdf:type rdf:resource="#AinuMotif"/>
+  <characterizedBy rdf:resource="#ElementaryMotif_Facet"/>
+  <characterizedBy rdf:resource="#SymmetricalGeometry_Facet"/>
+  <hasContext rdf:resource="#Sik_context"/>
+  <producesAsset rdf:resource="#Sik_digital_abstraction"/>
+  <producesAsset rdf:resource="#Sik_point_cloud"/>
+  <producesAsset rdf:resource="#Sik_code_layer"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sik_context">
+  <rdf:type rdf:resource="#SemanticCulturalContext"/>
+  <narrativeMeaning rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Traditional eye geometry structure, representing watchful stars or spirits.</narrativeMeaning>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sik_point_cloud">
+  <rdf:type rdf:resource="#PointCloud"/>
+  <generatedBy rdf:resource="#IPCM_Online_System"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Sik/point/point.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raw point clouds created as the primary representation of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sik_code_layer">
+  <rdf:type rdf:resource="#GenerativeCode"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Sik/code/code.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sik_digital_abstraction">
+  <rdf:type rdf:resource="#DigitalAbstraction"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Sik/digital_abstraction/digital_abstraction.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sik-Uren-Morew">
+  <rdf:type rdf:resource="#AinuMotif"/>
+  <characterizedBy rdf:resource="#SyntheticMotif_Facet"/>
+  <characterizedBy rdf:resource="#SymmetricalGeometry_Facet"/>
+  <hasContext rdf:resource="#Sik-Uren-Morew_context"/>
+  <producesAsset rdf:resource="#Sik-Uren-Morew_point_cloud"/>
+  <producesAsset rdf:resource="#Sik-Uren-Morew_code_layer"/>
+  <producesAsset rdf:resource="#Sik-Uren-Morew_digital_abstraction"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sik-Uren-Morew_context">
+  <rdf:type rdf:resource="#SemanticCulturalContext"/>
+  <narrativeMeaning rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Combination of two spirals and an eye feature, used as a central prominent motif.</narrativeMeaning>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sik-Uren-Morew_point_cloud">
+  <rdf:type rdf:resource="#PointCloud"/>
+  <generatedBy rdf:resource="#IPCM_Online_System"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Sik-Uren-Morew/point/point.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raw point clouds created as the primary representation of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sik-Uren-Morew_code_layer">
+  <rdf:type rdf:resource="#GenerativeCode"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Sik-Uren-Morew/code/code.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sik-Uren-Morew_digital_abstraction">
+  <rdf:type rdf:resource="#DigitalAbstraction"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Sik-Uren-Morew/digital_abstraction/digital_abstraction.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Uren-Morew">
+  <rdf:type rdf:resource="#AinuMotif"/>
+  <characterizedBy rdf:resource="#SyntheticMotif_Facet"/>
+  <characterizedBy rdf:resource="#SymmetricalGeometry_Facet"/>
+  <hasContext rdf:resource="#Uren-Morew_context"/>
+  <producesAsset rdf:resource="#Uren-Morew_point_cloud"/>
+  <producesAsset rdf:resource="#Uren-Morew_code_layer"/>
+  <producesAsset rdf:resource="#Uren-Morew_digital_abstraction"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Uren-Morew_context">
+  <rdf:type rdf:resource="#SemanticCulturalContext"/>
+  <narrativeMeaning rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Two interconnected mirrored spirals, symbolizing balance and pair dynamics.</narrativeMeaning>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Uren-Morew_point_cloud">
+  <rdf:type rdf:resource="#PointCloud"/>
+  <generatedBy rdf:resource="#IPCM_Online_System"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Uren-Morew/point/point.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raw point clouds created as the primary representation of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Uren-Morew_code_layer">
+  <rdf:type rdf:resource="#GenerativeCode"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Uren-Morew/code/code.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.</assetDefinition>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Uren-Morew_digital_abstraction">
+  <rdf:type rdf:resource="#DigitalAbstraction"/>
+  <generatedBy rdf:resource="#OpenSCAD_Template"/>
+  <zipFilePath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motif_database/ainu/Uren-Morew/digital_abstraction/digital_abstraction.zip</zipFilePath>
+  <assetDefinition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).</assetDefinition>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>

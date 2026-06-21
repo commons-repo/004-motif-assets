@@ -1,0 +1,326 @@
+/* ==========================================
+   1. STYLISH MONOSPACE FONT IMPORT ONLY
+   ========================================== */
+/*@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700&display=swap');*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Original Core Color Palette Restored Exactly */
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: #dee2e6;
+    --text-main: #333333;
+    --text-muted: #6c757d;
+
+    /* Single Stylish Font Family Master Variable */
+    /* --font-main: 'Crimson Text', Georgia, serif;*/
+    --font-main: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ==========================================
+   2. GLOBAL RESET & BASE STYLES
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* All headings explicitly bound to the master monospace font */
+h2, h3 {
+    font-family: var(--font-main);
+    color: var(--primary-color);
+}
+
+/* ==========================================
+   3. HEADER & FOOTER
+   ========================================== */
+.main-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 2rem;       /* Reduced vertical padding from 2rem to 0.8rem */
+    text-align: center;
+    border-bottom: 4px solid var(--accent-color);
+}
+
+.main-header h2 {
+    font-size: 1.5rem;          /* Scaled down from 2.2rem for a sleek title block */
+    margin-bottom: 0.1rem;
+    color: white;
+}
+
+.subtitle {
+    font-size: 0.9rem;          /* Adjusted slightly to match the new scale */
+    color: #cbd5e1;
+}
+
+.main-footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--secondary-color);
+    color: white;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   4. MAIN DASHBOARD CONTAINER
+   ========================================== */
+.dashboard-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+/* ==========================================
+   5. ROW-STACKED CONTROL PANEL (FILTERS)
+   ========================================== */
+/* Replace the control panel rules with this high-density horizontal configuration */
+.control-panel {
+    display: flex;
+    flex-direction: row;        /* Changed from column to row to align categories horizontally */
+    flex-wrap: wrap;            /* Safely wraps to a new line only if horizontal space runs out */
+    align-items: center;        /* Vertically centers all filter elements */
+    gap: 2rem;                  /* Clean horizontal separation between the filter blocks */
+    background-color: var(--card-bg);
+    padding: 0.6rem 1.2rem;     /* Cut vertical padding in half to save screen real estate */
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: auto;                /* Restricted width so groups can sit next to one another */
+    padding-bottom: 0;          /* Eliminated unnecessary bottom padding */
+}
+
+.filter-group h3 {
+    font-size: 0.85rem;
+    min-width: auto;            /* Removed the 200px minimum to let labels sit snug next to buttons */
+    margin: 0;
+    color: var(--secondary-color);
+}
+
+/* Compact Workspace Button Styling */
+.filter-btn {
+    font-family: var(--font-main);
+    font-size: 0.82rem;          /* Smaller, high-density font rendering */
+    padding: 0.35rem 0.75rem;    /* Reduced padding to save vertical viewport space */
+    border: 1px solid var(--border-color);
+    background-color: #f8f9fa;
+    color: var(--text-main);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background-color: #e2e8f0;
+    border-color: #cbd5e1;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* ==========================================
+   6. DATA MATRIX (CSS GRID)
+   ========================================== */
+.matrix-display {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.matrix-header {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr 1.5fr 1fr 1fr 1.5fr;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+}
+
+.motif-row {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr 1.5fr 1fr 1fr 1.5fr;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    align-items: start;
+    transition: background-color 0.1s ease;
+}
+
+.motif-row:hover {
+    background-color: #f1f8ff;
+}
+
+.motif-row:last-child {
+    border-bottom: none;
+}
+
+/* ==========================================
+   7. TYPOGRAPHY & TAGS INSIDE MATRIX
+   ========================================== */
+.motif-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background-color: #e2e8f0;
+    color: var(--secondary-color);
+    margin-bottom: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.desc-text {
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+/* ==========================================
+   8. BUTTONS & LINKS
+   ========================================== */
+.tool-link {
+    display: block;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.tool-link:hover {
+    text-decoration: underline;
+}
+
+.download-btn {
+    font-family: var(--font-main);
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+.download-btn:hover {
+    background-color: var(--bg-color);
+    border-color: var(--secondary-color);
+}
+
+.loading {
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* ==========================================
+   INTERACTIVE POPUP MODAL COMPONENT STYLES
+   ========================================== */
+.modal-overlay {
+    display: none;        /* Hidden by default until activated via JavaScript */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Dark background dimming effect */
+    z-index: 2000;        /* Ensures the window sits on top of all table rows */
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    position: relative;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header-title {
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 0.6rem;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;  /* Prevents distortion of high-resolution geometry assets */
+    background-color: transparent;
+}
+
+.modal-close-btn {
+    font-family: var(--font-main);
+    margin-top: 1.2rem;
+    padding: 0.5rem 1.8rem;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.15s ease;
+}
+
+.modal-close-btn:hover {
+    background-color: var(--secondary-color);
+}

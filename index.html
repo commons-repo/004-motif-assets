@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Assets of Physical Motifs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <h2>Open Data of Digital Assets Derived From Physical Motifs</h2>        
+        <p class="subtitle">
+            A study by the <a href="https://www.kit-amel.jp/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">Advanced Manufacturing Engineering Laboratory</a>, Kitami Institute of Technology, Japan
+        </p>
+        
+    </header>
+
+    <main class="dashboard-container">
+        <section class="control-panel">
+            <div class="filter-group">
+                <h3 data-header-key="CulturalMotif">Cultural Origin</h3>
+                <button class="filter-btn active" data-filter-type="regional_origin" data-value="all">All Regions</button>
+                <button class="filter-btn" data-filter-type="regional_origin" data-value="AinuMotif">Ainu</button>
+                <button class="filter-btn" data-filter-type="regional_origin" data-value="RyukyuMotif">Ryukyu</button>
+            </div>
+
+            <div class="filter-group">
+                <h3 data-header-key="CompositionalComplexity">Compositional Complexity</h3>
+                <button class="filter-btn active" data-filter-type="complexity" data-value="all">All</button>
+                <button class="filter-btn" data-filter-type="complexity" data-value="ElementaryMotif">Elementary</button>
+                <button class="filter-btn" data-filter-type="complexity" data-value="SyntheticMotif">Synthetic</button>
+                <button class="filter-btn" data-filter-type="complexity" data-value="CombinatorialMotif">Combinatorial</button>
+            </div>
+
+            <div class="filter-group">
+                <h3 data-header-key="GeometricStructure">Geometric Structure</h3>
+                <button class="filter-btn active" data-filter-type="geometry" data-value="all">All</button>
+                <button class="filter-btn" data-filter-type="geometry" data-value="SymmetricalGeometry">Symmetrical</button>
+                <button class="filter-btn" data-filter-type="geometry" data-value="AsymmetricalGeometry">Asymmetrical</button>
+            </div>
+        </section>
+
+        <section class="matrix-display">
+            <div class="matrix-header">
+                <div>Motif Identifier</div>
+                <div>Taxonomy Classifications</div>
+                <div>Semantic and Cultural Context</div>
+                <div>Digitization Tools</div>
+                <div>Digital Assets (.zip)</div>
+                <div>Preview Assets</div>
+            </div>
+            <div id="matrix-rows" class="matrix-rows">
+                <div class="loading">Loading compiled semantic metadata...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>Proof of Concept Deployment. Study is being conducted by the <a href="https://www.kit-amel.jp/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">Advanced Manufacturing Engineering Laboratory</a>, Kitami Institute of Technology, Japan.</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <div id="gallery-modal" class="modal-overlay" onclick="closeImageModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <div id="modal-title" class="modal-header-title"></div>
+        
+        <div style="position: relative; display: flex; align-items: center; justify-content: center; width: 100%; max-height: 60vh;">
+            
+            <button onclick="changeModalImage(-1)" style="position: absolute; left: 10px; background: rgba(44, 62, 80, 0.8); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-weight: bold; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; z-index: 10; user-select: none;">&lt;</button>
+            
+            <img id="modal-img" src="" alt="Enlarged Asset View">
+            
+            <button onclick="changeModalImage(1)" style="position: absolute; right: 10px; background: rgba(44, 62, 80, 0.8); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-weight: bold; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; z-index: 10; user-select: none;">&gt;</button>
+        
+        </div>
+        
+        <button class="modal-close-btn" onclick="closeImageModal()">✕ Close Window</button>
+    </div>
+</div>
+</div>
+</body>
+</html>
