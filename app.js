@@ -1,7 +1,7 @@
 let motifDatabase = [];
 let metadataDefinitions = {}; // Storage for global tooltip definitions lookup map
 let activeFilters = {
-    complexity: 'all',
+    compositional_category: 'all',
     geometry: 'all',
     regional_origin: 'all'
 };
@@ -56,19 +56,19 @@ function renderMatrix() {
 
     // 1. Isolate entries matching the active sidebar filters
     const filteredRecords = motifDatabase.filter(motif => {
-        const matchComplexity = activeFilters.complexity === 'all' || motif.classification.complexity === activeFilters.complexity;
+        const matchCategory = activeFilters.compositional_category === 'all' || motif.classification.compositional_category === activeFilters.compositional_category;
         const matchGeometry = activeFilters.geometry === 'all' || motif.classification.geometry === activeFilters.geometry;
         const matchRegional = activeFilters.regional_origin === 'all' || motif.regional_origin === activeFilters.regional_origin;
-        return matchComplexity && matchGeometry && matchRegional;
+        return matchCategory && matchGeometry && matchRegional;
     });
 
     if (filteredRecords.length === 0) {
-        container.innerHTML = '<div class="loading">No digital assets are currently available for the selected criteria.</div>';
+        container.innerHTML = '<div class="loading">No digital resources are currently available for the selected criteria.</div>';
         return;
     }
 
-    // 2. Define custom sorting priority weights for each complexity class
-    const complexityWeights = {
+    // 2. Define custom sorting priority weights for each compositional category
+    const categoryWeights = {
         'ElementaryMotif': 1,
         'SyntheticMotif': 2,
         'CombinatorialMotif': 3
@@ -76,15 +76,15 @@ function renderMatrix() {
 
     // 3. Apply structural sorting logic before rendering rows
     filteredRecords.sort((a, b) => {
-        const weightA = complexityWeights[a.classification.complexity] || 99;
-        const weightB = complexityWeights[b.classification.complexity] || 99;
+        const weightA = categoryWeights[a.classification.compositional_category] || 99;
+        const weightB = categoryWeights[b.classification.compositional_category] || 99;
 
-        // Primary Sort: Order strictly by Taxonomy Complexity Tier
+        // Primary Sort: Order strictly by Compositional Category
         if (weightA !== weightB) {
             return weightA - weightB;
         }
         
-        // Secondary Fallback: If complexity tiers match, sort alphabetically by ID name
+        // Secondary Fallback: If compositional categories match, sort alphabetically by ID name
         return a.id.localeCompare(b.id);
     });
 
@@ -93,21 +93,24 @@ function renderMatrix() {
         const row = document.createElement('div');
         row.className = 'motif-row';
 
-        const compTag = motif.classification.complexity.replace('Motif', '');
+        const compTag = motif.classification.compositional_category.replace('Motif', '');
         const geoTag = motif.classification.geometry.replace('Geometry', '');
         const regionalTag = motif.regional_origin.replace('Motif', '');
+        const contextDescription = motif.cultural_context.cultural_meaning ||
+            motif.cultural_context.compositional_description ||
+            'Cultural meaning has not been established from the available sources.';
 
         // Resolve local folder naming structure dynamically based on ontology records
         const regionFolder = motif.regional_origin === "AinuMotif" ? "ainu" : "ryukyu";
         const thumbnailPath = `motif_database/${regionFolder}/${motif.id}/preview/${motif.id}.png`;
 
         const uniqueTools = new Map();
-        Object.values(motif.assets).forEach(asset => {
-            if (asset.tool_id && !uniqueTools.has(asset.tool_id)) {
-                const toolDefinition = metadataDefinitions[asset.tool_id] || "";
-                uniqueTools.set(asset.tool_id, {
-                    url: asset.tool_url,
-                    doc: asset.tool_doc,
+        Object.values(motif.resources).forEach(resource => {
+            if (resource.tool_id && !uniqueTools.has(resource.tool_id)) {
+                const toolDefinition = metadataDefinitions[resource.tool_id] || "";
+                uniqueTools.set(resource.tool_id, {
+                    url: resource.tool_url,
+                    doc: resource.tool_doc,
                     definition: toolDefinition
                 });
             }
@@ -136,13 +139,13 @@ function renderMatrix() {
                 <span class="tag" style="background-color: #f0fdf4; color: #166534; display: inline-block;">${geoTag}</span>
             </div>
             <div class="desc-text">
-                ${motif.cultural_context.narrative_meaning}
+                ${contextDescription}
             </div>
             <div>${toolsHtml}</div>
             <div>
-                <a href="${motif.assets.point_cloud.path}" class="download-btn" title="${motif.assets.point_cloud.definition}">⤓ Point (.zip)</a>
-                <a href="${motif.assets.generative_code.path}" class="download-btn" title="${motif.assets.generative_code.definition}">⤓ Code (.zip)</a>
-                <a href="${motif.assets.digital_abstraction.path}" class="download-btn" title="${motif.assets.digital_abstraction.definition}">⤓ Abstraction (.zip)</a>
+                <a href="${motif.resources.point_representation.path}" class="download-btn" title="${motif.resources.point_representation.definition}">⤓ Point Representation (.zip)</a>
+                <a href="${motif.resources.rendering_code.path}" class="download-btn" title="${motif.resources.rendering_code.definition}">⤓ Rendering Code (.zip)</a>
+                <a href="${motif.resources.cad_asset.path}" class="download-btn" title="${motif.resources.cad_asset.definition}">⤓ CAD Assets (.zip)</a>
             </div>
 
             <div>

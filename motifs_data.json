@@ -1,10 +1,10 @@
 {
-    "schema_version": "2.3.0",
+    "schema_version": "3.0.0",
     "total_records": 13,
     "metadata_definitions": {
         "CulturalMotif": "Core abstract class representing high-level regional cultural design elements.",
         "ClassificationDimension": "The root abstract class representing the structural parameters used to analyze a motif's overall design form.",
-        "CompositionalComplexity": "The structural parameter within the classification dimension that evaluates the number and hierarchy of design parts forming a motif.",
+        "CompositionalCategory": "The classification dimension that describes whether a motif is elementary, synthetic, or combinatorial.",
         "GeometricStructure": "The structural parameter within the classification dimension that evaluates the spatial layout and symmetry of design parts forming a motif.",
         "AinuMotif": "Traditional design motifs originating from the indigenous Ainu culture of Hokkaido.",
         "RyukyuMotif": "Traditional design motifs originating from the historical Ryukyu Kingdom of Okinawa.",
@@ -13,8 +13,8 @@
         "CombinatorialMotif": "A multi-layered pattern expanding on traditional rules, elementary and synthetic motifs.",
         "SymmetricalGeometry": "A layout displaying clear mathematical reflection, rotation, or translation symmetry.",
         "AsymmetricalGeometry": "A layout governed by organic, non-uniform, or balanced asymmetrical spatial constraints.",
-        "IPCM_Online_System": "Automated platform for point cloud generation.",
-        "OpenSCAD_Template": "Template for rendering point clouds to digital abstractions using OpenSCAD."
+        "IPCM_Online_System": "Interactive human-guided platform for generating and transforming ordered point representations.",
+        "OpenSCAD_Template": "OpenSCAD rendering template for transforming ordered point representations into two-dimensional and three-dimensional CAD assets."
     },
     "database": [
         {
@@ -22,30 +22,32 @@
             "display_name": "Apapo Piras(U)Ke",
             "regional_origin": "AinuMotif",
             "classification": {
-                "complexity": "ElementaryMotif",
+                "compositional_category": "ElementaryMotif",
                 "geometry": "SymmetricalGeometry"
             },
             "cultural_context": {
-                "narrative_meaning": "Traditional plant/flower motif in bloom, used as a decorative flourish."
+                "cultural_meaning": "Traditional plant/flower motif in bloom, used as a decorative flourish.",
+                "compositional_description": "",
+                "historical_significance": ""
             },
-            "assets": {
-                "point_cloud": {
+            "resources": {
+                "point_representation": {
                     "path": "motif_database/ainu/Apapo-Piras(u)ke/point/point.zip",
-                    "definition": "Raw point clouds created as the primary representation of physical motifs.",
+                    "definition": "Ordered point representations created as the primary geometric source for cultural motifs.",
                     "tool_id": "IPCM_Online_System",
                     "tool_url": "https://commons-repo.github.io/002-research/",
                     "tool_doc": "https://commons-repo.github.io/002-research/"
                 },
-                "generative_code": {
+                "rendering_code": {
                     "path": "motif_database/ainu/Apapo-Piras(u)ke/code/code.zip",
-                    "definition": "Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.",
+                    "definition": "OpenSCAD rendering scripts that transform ordered point representations into two-dimensional and three-dimensional CAD assets.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
                 },
-                "digital_abstraction": {
+                "cad_asset": {
                     "path": "motif_database/ainu/Apapo-Piras(u)ke/digital_abstraction/digital_abstraction.zip",
-                    "definition": "Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).",
+                    "definition": "CAD asset packages containing SVG, DXF, STL, OBJ, and 3MF files generated from ordered point representations.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
@@ -57,30 +59,32 @@
             "display_name": "Ayus",
             "regional_origin": "AinuMotif",
             "classification": {
-                "complexity": "ElementaryMotif",
+                "compositional_category": "ElementaryMotif",
                 "geometry": "SymmetricalGeometry"
             },
             "cultural_context": {
-                "narrative_meaning": "Protective thorn structure, used at the tips of patterns to ward off evil."
+                "cultural_meaning": "Protective thorn structure, used at the tips of patterns to ward off evil.",
+                "compositional_description": "",
+                "historical_significance": ""
             },
-            "assets": {
-                "point_cloud": {
+            "resources": {
+                "point_representation": {
                     "path": "motif_database/ainu/Ayus/point/point.zip",
-                    "definition": "Raw point clouds created as the primary representation of physical motifs.",
+                    "definition": "Ordered point representations created as the primary geometric source for cultural motifs.",
                     "tool_id": "IPCM_Online_System",
                     "tool_url": "https://commons-repo.github.io/002-research/",
                     "tool_doc": "https://commons-repo.github.io/002-research/"
                 },
-                "generative_code": {
+                "rendering_code": {
                     "path": "motif_database/ainu/Ayus/code/code.zip",
-                    "definition": "Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.",
+                    "definition": "OpenSCAD rendering scripts that transform ordered point representations into two-dimensional and three-dimensional CAD assets.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
                 },
-                "digital_abstraction": {
+                "cad_asset": {
                     "path": "motif_database/ainu/Ayus/digital_abstraction/digital_abstraction.zip",
-                    "definition": "Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).",
+                    "definition": "CAD asset packages containing SVG, DXF, STL, OBJ, and 3MF files generated from ordered point representations.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
@@ -92,30 +96,32 @@
             "display_name": "C1",
             "regional_origin": "AinuMotif",
             "classification": {
-                "complexity": "CombinatorialMotif",
+                "compositional_category": "CombinatorialMotif",
                 "geometry": "SymmetricalGeometry"
             },
             "cultural_context": {
-                "narrative_meaning": "Multi-layered combinatorial pattern expanding on traditional rules, elementary and synthetic motifs."
+                "cultural_meaning": "",
+                "compositional_description": "Combinatorial arrangement constructed from elementary and synthetic motif forms.",
+                "historical_significance": ""
             },
-            "assets": {
-                "point_cloud": {
+            "resources": {
+                "point_representation": {
                     "path": "motif_database/ainu/C1/point/point.zip",
-                    "definition": "Raw point clouds created as the primary representation of physical motifs.",
+                    "definition": "Ordered point representations created as the primary geometric source for cultural motifs.",
                     "tool_id": "IPCM_Online_System",
                     "tool_url": "https://commons-repo.github.io/002-research/",
                     "tool_doc": "https://commons-repo.github.io/002-research/"
                 },
-                "generative_code": {
+                "rendering_code": {
                     "path": "motif_database/ainu/C1/code/code.zip",
-                    "definition": "Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.",
+                    "definition": "OpenSCAD rendering scripts that transform ordered point representations into two-dimensional and three-dimensional CAD assets.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
                 },
-                "digital_abstraction": {
+                "cad_asset": {
                     "path": "motif_database/ainu/C1/digital_abstraction/digital_abstraction.zip",
-                    "definition": "Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).",
+                    "definition": "CAD asset packages containing SVG, DXF, STL, OBJ, and 3MF files generated from ordered point representations.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
@@ -127,30 +133,32 @@
             "display_name": "C2",
             "regional_origin": "AinuMotif",
             "classification": {
-                "complexity": "CombinatorialMotif",
+                "compositional_category": "CombinatorialMotif",
                 "geometry": "SymmetricalGeometry"
             },
             "cultural_context": {
-                "narrative_meaning": "Multi-layered combinatorial pattern expanding on traditional rules, elementary and synthetic motifs."
+                "cultural_meaning": "",
+                "compositional_description": "Combinatorial arrangement constructed from elementary and synthetic motif forms.",
+                "historical_significance": ""
             },
-            "assets": {
-                "point_cloud": {
+            "resources": {
+                "point_representation": {
                     "path": "motif_database/ainu/C2/point/point.zip",
-                    "definition": "Raw point clouds created as the primary representation of physical motifs.",
+                    "definition": "Ordered point representations created as the primary geometric source for cultural motifs.",
                     "tool_id": "IPCM_Online_System",
                     "tool_url": "https://commons-repo.github.io/002-research/",
                     "tool_doc": "https://commons-repo.github.io/002-research/"
                 },
-                "generative_code": {
+                "rendering_code": {
                     "path": "motif_database/ainu/C2/code/code.zip",
-                    "definition": "Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.",
+                    "definition": "OpenSCAD rendering scripts that transform ordered point representations into two-dimensional and three-dimensional CAD assets.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
                 },
-                "digital_abstraction": {
+                "cad_asset": {
                     "path": "motif_database/ainu/C2/digital_abstraction/digital_abstraction.zip",
-                    "definition": "Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).",
+                    "definition": "CAD asset packages containing SVG, DXF, STL, OBJ, and 3MF files generated from ordered point representations.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
@@ -162,30 +170,32 @@
             "display_name": "C3",
             "regional_origin": "AinuMotif",
             "classification": {
-                "complexity": "CombinatorialMotif",
+                "compositional_category": "CombinatorialMotif",
                 "geometry": "SymmetricalGeometry"
             },
             "cultural_context": {
-                "narrative_meaning": "Multi-layered combinatorial pattern expanding on traditional rules, elementary and synthetic motifs."
+                "cultural_meaning": "",
+                "compositional_description": "Combinatorial arrangement constructed from elementary and synthetic motif forms.",
+                "historical_significance": ""
             },
-            "assets": {
-                "point_cloud": {
+            "resources": {
+                "point_representation": {
                     "path": "motif_database/ainu/C3/point/point.zip",
-                    "definition": "Raw point clouds created as the primary representation of physical motifs.",
+                    "definition": "Ordered point representations created as the primary geometric source for cultural motifs.",
                     "tool_id": "IPCM_Online_System",
                     "tool_url": "https://commons-repo.github.io/002-research/",
                     "tool_doc": "https://commons-repo.github.io/002-research/"
                 },
-                "generative_code": {
+                "rendering_code": {
                     "path": "motif_database/ainu/C3/code/code.zip",
-                    "definition": "Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.",
+                    "definition": "OpenSCAD rendering scripts that transform ordered point representations into two-dimensional and three-dimensional CAD assets.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
                 },
-                "digital_abstraction": {
+                "cad_asset": {
                     "path": "motif_database/ainu/C3/digital_abstraction/digital_abstraction.zip",
-                    "definition": "Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).",
+                    "definition": "CAD asset packages containing SVG, DXF, STL, OBJ, and 3MF files generated from ordered point representations.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
@@ -197,30 +207,32 @@
             "display_name": "C4",
             "regional_origin": "AinuMotif",
             "classification": {
-                "complexity": "CombinatorialMotif",
+                "compositional_category": "CombinatorialMotif",
                 "geometry": "SymmetricalGeometry"
             },
             "cultural_context": {
-                "narrative_meaning": "Multi-layered combinatorial pattern expanding on traditional rules, elementary and synthetic motifs."
+                "cultural_meaning": "",
+                "compositional_description": "Combinatorial arrangement constructed from elementary and synthetic motif forms.",
+                "historical_significance": ""
             },
-            "assets": {
-                "point_cloud": {
+            "resources": {
+                "point_representation": {
                     "path": "motif_database/ainu/C4/point/point.zip",
-                    "definition": "Raw point clouds created as the primary representation of physical motifs.",
+                    "definition": "Ordered point representations created as the primary geometric source for cultural motifs.",
                     "tool_id": "IPCM_Online_System",
                     "tool_url": "https://commons-repo.github.io/002-research/",
                     "tool_doc": "https://commons-repo.github.io/002-research/"
                 },
-                "generative_code": {
+                "rendering_code": {
                     "path": "motif_database/ainu/C4/code/code.zip",
-                    "definition": "Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.",
+                    "definition": "OpenSCAD rendering scripts that transform ordered point representations into two-dimensional and three-dimensional CAD assets.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
                 },
-                "digital_abstraction": {
+                "cad_asset": {
                     "path": "motif_database/ainu/C4/digital_abstraction/digital_abstraction.zip",
-                    "definition": "Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).",
+                    "definition": "CAD asset packages containing SVG, DXF, STL, OBJ, and 3MF files generated from ordered point representations.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
@@ -232,30 +244,32 @@
             "display_name": "C5",
             "regional_origin": "AinuMotif",
             "classification": {
-                "complexity": "CombinatorialMotif",
+                "compositional_category": "CombinatorialMotif",
                 "geometry": "SymmetricalGeometry"
             },
             "cultural_context": {
-                "narrative_meaning": "Multi-layered combinatorial pattern expanding on traditional rules, elementary and synthetic motifs."
+                "cultural_meaning": "",
+                "compositional_description": "Combinatorial arrangement constructed from elementary and synthetic motif forms.",
+                "historical_significance": ""
             },
-            "assets": {
-                "point_cloud": {
+            "resources": {
+                "point_representation": {
                     "path": "motif_database/ainu/C5/point/point.zip",
-                    "definition": "Raw point clouds created as the primary representation of physical motifs.",
+                    "definition": "Ordered point representations created as the primary geometric source for cultural motifs.",
                     "tool_id": "IPCM_Online_System",
                     "tool_url": "https://commons-repo.github.io/002-research/",
                     "tool_doc": "https://commons-repo.github.io/002-research/"
                 },
-                "generative_code": {
+                "rendering_code": {
                     "path": "motif_database/ainu/C5/code/code.zip",
-                    "definition": "Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.",
+                    "definition": "OpenSCAD rendering scripts that transform ordered point representations into two-dimensional and three-dimensional CAD assets.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
                 },
-                "digital_abstraction": {
+                "cad_asset": {
                     "path": "motif_database/ainu/C5/digital_abstraction/digital_abstraction.zip",
-                    "definition": "Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).",
+                    "definition": "CAD asset packages containing SVG, DXF, STL, OBJ, and 3MF files generated from ordered point representations.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
@@ -267,30 +281,32 @@
             "display_name": "C6",
             "regional_origin": "AinuMotif",
             "classification": {
-                "complexity": "CombinatorialMotif",
+                "compositional_category": "CombinatorialMotif",
                 "geometry": "SymmetricalGeometry"
             },
             "cultural_context": {
-                "narrative_meaning": "Multi-layered combinatorial pattern expanding on traditional rules, elementary and synthetic motifs."
+                "cultural_meaning": "",
+                "compositional_description": "Combinatorial arrangement constructed from elementary and synthetic motif forms.",
+                "historical_significance": ""
             },
-            "assets": {
-                "point_cloud": {
+            "resources": {
+                "point_representation": {
                     "path": "motif_database/ainu/C6/point/point.zip",
-                    "definition": "Raw point clouds created as the primary representation of physical motifs.",
+                    "definition": "Ordered point representations created as the primary geometric source for cultural motifs.",
                     "tool_id": "IPCM_Online_System",
                     "tool_url": "https://commons-repo.github.io/002-research/",
                     "tool_doc": "https://commons-repo.github.io/002-research/"
                 },
-                "generative_code": {
+                "rendering_code": {
                     "path": "motif_database/ainu/C6/code/code.zip",
-                    "definition": "Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.",
+                    "definition": "OpenSCAD rendering scripts that transform ordered point representations into two-dimensional and three-dimensional CAD assets.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
                 },
-                "digital_abstraction": {
+                "cad_asset": {
                     "path": "motif_database/ainu/C6/digital_abstraction/digital_abstraction.zip",
-                    "definition": "Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).",
+                    "definition": "CAD asset packages containing SVG, DXF, STL, OBJ, and 3MF files generated from ordered point representations.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
@@ -302,30 +318,32 @@
             "display_name": "Heart Shape",
             "regional_origin": "AinuMotif",
             "classification": {
-                "complexity": "ElementaryMotif",
+                "compositional_category": "ElementaryMotif",
                 "geometry": "SymmetricalGeometry"
             },
             "cultural_context": {
-                "narrative_meaning": "Historical handcrafted textile variant resembling a heart shape."
+                "cultural_meaning": "Historical handcrafted textile variant resembling a heart shape.",
+                "compositional_description": "",
+                "historical_significance": ""
             },
-            "assets": {
-                "point_cloud": {
+            "resources": {
+                "point_representation": {
                     "path": "motif_database/ainu/Heart-Shape/point/point.zip",
-                    "definition": "Raw point clouds created as the primary representation of physical motifs.",
+                    "definition": "Ordered point representations created as the primary geometric source for cultural motifs.",
                     "tool_id": "IPCM_Online_System",
                     "tool_url": "https://commons-repo.github.io/002-research/",
                     "tool_doc": "https://commons-repo.github.io/002-research/"
                 },
-                "generative_code": {
+                "rendering_code": {
                     "path": "motif_database/ainu/Heart-Shape/code/code.zip",
-                    "definition": "Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.",
+                    "definition": "OpenSCAD rendering scripts that transform ordered point representations into two-dimensional and three-dimensional CAD assets.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
                 },
-                "digital_abstraction": {
+                "cad_asset": {
                     "path": "motif_database/ainu/Heart-Shape/digital_abstraction/digital_abstraction.zip",
-                    "definition": "Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).",
+                    "definition": "CAD asset packages containing SVG, DXF, STL, OBJ, and 3MF files generated from ordered point representations.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
@@ -337,30 +355,32 @@
             "display_name": "Morew",
             "regional_origin": "AinuMotif",
             "classification": {
-                "complexity": "ElementaryMotif",
+                "compositional_category": "ElementaryMotif",
                 "geometry": "AsymmetricalGeometry"
             },
             "cultural_context": {
-                "narrative_meaning": "Classic whirling spiral element representing power and movement."
+                "cultural_meaning": "Classic whirling spiral element representing power and movement.",
+                "compositional_description": "",
+                "historical_significance": ""
             },
-            "assets": {
-                "point_cloud": {
+            "resources": {
+                "point_representation": {
                     "path": "motif_database/ainu/Morew/point/point.zip",
-                    "definition": "Raw point clouds created as the primary representation of physical motifs.",
+                    "definition": "Ordered point representations created as the primary geometric source for cultural motifs.",
                     "tool_id": "IPCM_Online_System",
                     "tool_url": "https://commons-repo.github.io/002-research/",
                     "tool_doc": "https://commons-repo.github.io/002-research/"
                 },
-                "generative_code": {
+                "rendering_code": {
                     "path": "motif_database/ainu/Morew/code/code.zip",
-                    "definition": "Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.",
+                    "definition": "OpenSCAD rendering scripts that transform ordered point representations into two-dimensional and three-dimensional CAD assets.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
                 },
-                "digital_abstraction": {
+                "cad_asset": {
                     "path": "motif_database/ainu/Morew/digital_abstraction/digital_abstraction.zip",
-                    "definition": "Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).",
+                    "definition": "CAD asset packages containing SVG, DXF, STL, OBJ, and 3MF files generated from ordered point representations.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
@@ -372,30 +392,32 @@
             "display_name": "Sik",
             "regional_origin": "AinuMotif",
             "classification": {
-                "complexity": "ElementaryMotif",
+                "compositional_category": "ElementaryMotif",
                 "geometry": "SymmetricalGeometry"
             },
             "cultural_context": {
-                "narrative_meaning": "Traditional eye geometry structure, representing watchful stars or spirits."
+                "cultural_meaning": "Traditional eye geometry structure, representing watchful stars or spirits.",
+                "compositional_description": "",
+                "historical_significance": ""
             },
-            "assets": {
-                "point_cloud": {
+            "resources": {
+                "point_representation": {
                     "path": "motif_database/ainu/Sik/point/point.zip",
-                    "definition": "Raw point clouds created as the primary representation of physical motifs.",
+                    "definition": "Ordered point representations created as the primary geometric source for cultural motifs.",
                     "tool_id": "IPCM_Online_System",
                     "tool_url": "https://commons-repo.github.io/002-research/",
                     "tool_doc": "https://commons-repo.github.io/002-research/"
                 },
-                "generative_code": {
+                "rendering_code": {
                     "path": "motif_database/ainu/Sik/code/code.zip",
-                    "definition": "Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.",
+                    "definition": "OpenSCAD rendering scripts that transform ordered point representations into two-dimensional and three-dimensional CAD assets.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
                 },
-                "digital_abstraction": {
+                "cad_asset": {
                     "path": "motif_database/ainu/Sik/digital_abstraction/digital_abstraction.zip",
-                    "definition": "Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).",
+                    "definition": "CAD asset packages containing SVG, DXF, STL, OBJ, and 3MF files generated from ordered point representations.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
@@ -407,30 +429,32 @@
             "display_name": "Sik Uren Morew",
             "regional_origin": "AinuMotif",
             "classification": {
-                "complexity": "SyntheticMotif",
+                "compositional_category": "SyntheticMotif",
                 "geometry": "SymmetricalGeometry"
             },
             "cultural_context": {
-                "narrative_meaning": "Combination of two spirals and an eye feature, used as a central prominent motif."
+                "cultural_meaning": "Combination of two spirals and an eye feature, used as a central prominent motif.",
+                "compositional_description": "",
+                "historical_significance": ""
             },
-            "assets": {
-                "point_cloud": {
+            "resources": {
+                "point_representation": {
                     "path": "motif_database/ainu/Sik-Uren-Morew/point/point.zip",
-                    "definition": "Raw point clouds created as the primary representation of physical motifs.",
+                    "definition": "Ordered point representations created as the primary geometric source for cultural motifs.",
                     "tool_id": "IPCM_Online_System",
                     "tool_url": "https://commons-repo.github.io/002-research/",
                     "tool_doc": "https://commons-repo.github.io/002-research/"
                 },
-                "generative_code": {
+                "rendering_code": {
                     "path": "motif_database/ainu/Sik-Uren-Morew/code/code.zip",
-                    "definition": "Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.",
+                    "definition": "OpenSCAD rendering scripts that transform ordered point representations into two-dimensional and three-dimensional CAD assets.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
                 },
-                "digital_abstraction": {
+                "cad_asset": {
                     "path": "motif_database/ainu/Sik-Uren-Morew/digital_abstraction/digital_abstraction.zip",
-                    "definition": "Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).",
+                    "definition": "CAD asset packages containing SVG, DXF, STL, OBJ, and 3MF files generated from ordered point representations.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
@@ -442,30 +466,32 @@
             "display_name": "Uren Morew",
             "regional_origin": "AinuMotif",
             "classification": {
-                "complexity": "SyntheticMotif",
+                "compositional_category": "SyntheticMotif",
                 "geometry": "SymmetricalGeometry"
             },
             "cultural_context": {
-                "narrative_meaning": "Two interconnected mirrored spirals, symbolizing balance and pair dynamics."
+                "cultural_meaning": "Two interconnected mirrored spirals, symbolizing balance and pair dynamics.",
+                "compositional_description": "",
+                "historical_significance": ""
             },
-            "assets": {
-                "point_cloud": {
+            "resources": {
+                "point_representation": {
                     "path": "motif_database/ainu/Uren-Morew/point/point.zip",
-                    "definition": "Raw point clouds created as the primary representation of physical motifs.",
+                    "definition": "Ordered point representations created as the primary geometric source for cultural motifs.",
                     "tool_id": "IPCM_Online_System",
                     "tool_url": "https://commons-repo.github.io/002-research/",
                     "tool_doc": "https://commons-repo.github.io/002-research/"
                 },
-                "generative_code": {
+                "rendering_code": {
                     "path": "motif_database/ainu/Uren-Morew/code/code.zip",
-                    "definition": "Openscad scripts that renders raw point clouds to digital abstractions of physical motifs.",
+                    "definition": "OpenSCAD rendering scripts that transform ordered point representations into two-dimensional and three-dimensional CAD assets.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
                 },
-                "digital_abstraction": {
+                "cad_asset": {
                     "path": "motif_database/ainu/Uren-Morew/digital_abstraction/digital_abstraction.zip",
-                    "definition": "Vector data packages including standard formats (SVG, DXF, STL, OBJ, and 3MF).",
+                    "definition": "CAD asset packages containing SVG, DXF, STL, OBJ, and 3MF files generated from ordered point representations.",
                     "tool_id": "OpenSCAD_Template",
                     "tool_url": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template.scad",
                     "tool_doc": "https://commons-repo.github.io/002-research/documents/rendering%20layer-related/openscad_template_documentation.pdf"
