@@ -7,16 +7,20 @@ let activeFilters = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('motifs_data.json')
+    fetch('motifs_data.json?v=3.0.1', { cache: 'no-store' })
         .then(response => {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             return response.json();
         })
         .then(payload => {
-            motifDatabase = payload.database;
+            if (payload.schema_version !== '3.0.0') {
+                throw new Error(`Unsupported data schema: ${payload.schema_version}`);
+            }
+            motifDatabase = Array.isArray(payload.database) ? payload.database : [];
             metadataDefinitions = payload.metadata_definitions; // Unpack global definition maps
             renderMatrix();
             setupFilterEventListeners();
+            console.info('Loaded motif categories:', [...new Set(motifDatabase.map(m => m.classification.compositional_category))]);
             injectDynamicOntologyTooltips(); // Bind OWL definitions directly to control elements
         })
         .catch(error => {
@@ -56,9 +60,17 @@ function renderMatrix() {
 
     // 1. Isolate entries matching the active sidebar filters
     const filteredRecords = motifDatabase.filter(motif => {
-        const matchCategory = activeFilters.compositional_category === 'all' || motif.classification.compositional_category === activeFilters.compositional_category;
-        const matchGeometry = activeFilters.geometry === 'all' || motif.classification.geometry === activeFilters.geometry;
-        const matchRegional = activeFilters.regional_origin === 'all' || motif.regional_origin === activeFilters.regional_origin;
+        const category = String(motif.classification?.compositional_category || '').trim();
+        const geometry = String(motif.classification?.geometry || '').trim();
+        const region = String(motif.regional_origin || '').trim();
+
+        const matchCategory = activeFilters.compositional_category === 'all' ||
+            category === activeFilters.compositional_category;
+        const matchGeometry = activeFilters.geometry === 'all' ||
+            geometry === activeFilters.geometry;
+        const matchRegional = activeFilters.regional_origin === 'all' ||
+            region === activeFilters.regional_origin;
+
         return matchCategory && matchGeometry && matchRegional;
     });
 
@@ -164,7 +176,7 @@ function setupFilterEventListeners() {
     const buttons = document.querySelectorAll('.filter-btn');
     buttons.forEach(btn => {
         btn.addEventListener('click', (event) => {
-            const targetedButton = event.target;
+            const targetedButton = event.currentTarget;
             const filterType = targetedButton.getAttribute('data-filter-type');
             const filterValue = targetedButton.getAttribute('data-value');
 
